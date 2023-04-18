@@ -44,7 +44,9 @@ voir avec le propriétaire du github
 Ce fichier se place dans le dossier principal du projet, c'est-à-dire côte à côte avec le fichier run.py.  Il doit contenir a minima:
 
 `FLASK_APP=run.py`
+
 `FLASK_ENV=development`
+
 `SECRET_KEY="à modifier"`
 
 ### installation du projet
