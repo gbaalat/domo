@@ -30,32 +30,33 @@ voir avec le propriétaire du github
 
 ### récupérer le projet
 
-* `git clone https://github.com/gbaalat/vote.git`
+* `git clone https://github.com/gbaalat/domo.git`
 * se déplacer dans le dossier créé avec `cd`
 
 ### créer l'environnement virtuel
 
-* `python3 -m venv venv --prompt vote`  pour le créer
+* `python3 -m venv venv --prompt domo`  pour le créer
 * `source venv/bin/activate` pour l'activer
 * `pip install --upgrade pip setuptools wheel` maj des outils de packaging
+
+### l'indispensable fichier .env
+
+Ce fichier se place dans le dossier principal du projet, c'est-à-dire côte à côte avec le fichier run.py.  Il doit contenir a minima:
+
+`FLASK_APP=run.py`
+`FLASK_ENV=development`
+`SECRET_KEY="à modifier"`
+
+### installation du projet
+
+`pip install -e .[dev]`
 
 ### config git
 * `git init`
 * `git config user.name mon_nom`
 * `git config user.email mon_email`
 
-### l'indispensable fichier .env
-
-Ce fichier se place dans le dossier principal du projet, c'est-à-dire côte à côte avec le fichier run.py.  Il doit contenir a minima:
-
-`FLASKK_APP=run.py`
-`FLASK_ENV=development`
-`SECRET_KEY="à modifier"`
-
-
-### installation du projet
-
-`pip install -e .[dev]`
+puis configurer l'accès sécurisé via token
 
 ## Outils
 
