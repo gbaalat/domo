@@ -11,7 +11,7 @@ gen_bp = Blueprint(
     __name__,
     template_folder="templates",
     static_folder="static",
-    url_prefix="/gen",
+    url_prefix="",
 )
 
 @gen_bp.route("/")
