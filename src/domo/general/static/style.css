@@ -1,0 +1,32 @@
+body{
+	box-sizing: border-box ;
+	font-family: 'Century Gothic', Calibri, serif;
+	font-size: 13px;
+	text-align: center;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+@media (max-width: 26cm){
+	html{
+		height: 100%;
+	}
+	body{
+		width: 100%;
+		margin: 0;
+		font-size: 140%;
+		height: 100%;
+	}
+}
+@media (orientation: portrait){
+	html{
+		height: 100%;
+	}
+	body{
+		width: 100%;
+		margin: 0;
+		font-size: 200%;
+		height: 100%;
+	}
+}
