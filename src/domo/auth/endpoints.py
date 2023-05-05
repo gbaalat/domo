@@ -14,31 +14,38 @@ def inscription():
     """Exemple fictif de gestion de l'inscription:
        on suppose que id est rentrée dans l'objet session de Flask
        lorsque l'utilisateur est connecté"""
-    if "id" in session:
+    if "mail" in session:
         return redirect(url_for("gen_bp.home")),flash("Déconnectez-vous pour vous inscrire.")
     if request.method == "POST":
         email=str(request.form["email"]) #recup du champ mail du formulaire HTML
         if test_utilisateur(email): #fonction dans business.py
-            session['id'] = email #identificateur de connexion
+            session['mail'] = email #identificateur de connexion
             flash(f"email OK") #message à destination de l'utilisateur
         else:
             flash("email incorrect")
     return render_template("auth_inscription.html")
 
-
+dicomdp = {"login@g.com" : "mdp"}
 @auth_bp.route("/connexion", methods=["GET", "POST"])
 def connexion():
-    if "id" in session: #déjà connecté
+    if "mail" in session: #déjà connecté
         flash("Déconnectez-vous pour vous connecter à un autre compte.")
         redirect(url_for("gen_bp.home"))
     if request.method == "POST":
         #gestion du formulaire saisi par l'utilisateur
-        pass
-    return render_template("auth_connexion.html")
+        entree = request.form
+        entreemail = entree['mail']
+        entreemdp = entree['mdp']
+        for mail in dicomdp:
+            if mail == entreemail and dicomdp[mail] == entreemdp:
+                session["mail"] = entreemail
+                return render_template("acceuil.html", session=session)
+    flash("Email ou mot de passe invalide, veillez réessayer ")
+    return render_template("auth_connexion.html", session=session)
 
 
 @auth_bp.route("/deconnexion")
 def deconnexion():
-    session.pop("id") # on supprime id de l'objet session
+    session.pop("mail") # on supprime id de l'objet session
     flash("Vous vous êtes bien déconnecté(e)")
     return redirect(url_for("gen_bp.home"))

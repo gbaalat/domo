@@ -11,7 +11,7 @@
 	    <h1>Smart House....</h1>
 		
 		<h3 id="auth">
-			{% if session['id'] %}
+			{% if session['mail'] %}
 			<a href="{{ url_for('auth_bp.deconnexion') }}">Déconnexion</a>
 			{% else %}
 			<a href="{{ url_for('auth_bp.connexion') }}">Se connecter</a>

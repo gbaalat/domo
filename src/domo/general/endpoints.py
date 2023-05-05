@@ -24,15 +24,5 @@ def home():
 def page_non_trouve(error):
     return render_template("404.html"), 404
 
-dicomdp = {"login@g.com" : "mdp"}
-@gen_bp.route("/acceuil", methods=['POST'])
-def validermdp():
-    entree = request.form
-    entreemail = entree['mail']
-    entreemdp = entree['mdp']
-    for mail in dicomdp:
-        if mail == entreemail and dicomdp[mail] == entreemdp:
-            return render_template("acceuil.html")
-    else : 
-        return render_template("auth_connexion.html")
+
         
