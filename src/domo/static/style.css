@@ -1,12 +1,30 @@
 body{
 	box-sizing: border-box ;
 	font-family: 'Century Gothic', Calibri, serif;
-	font-size: 13px;
-	text-align: center;
+	font-size: 15px;
+	text-align: left;
 	width: 90%;
 	margin-left: 5%;
 	margin-right: 5%;
 }
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3 {
+	text-align: right;
+}
+
+h4 {
+	text-decoration: underline;
+}
+
+
 
 @media (max-width: 26cm){
 	html{

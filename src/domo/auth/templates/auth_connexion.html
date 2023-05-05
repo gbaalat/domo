@@ -2,4 +2,16 @@
 
 {% block section %}
 	<h2>Connexion</h2>
+
+	<form action="/acceuil" method="post">
+		<p>
+		<label for="mail"> Adresse mail :  </label>
+		<input type="email" name="mail" id="mail" required>
+		</p>
+		<p>
+		<label for="mdp"> Mot de passe :  </label>
+		<input type="password" name="mdp" id="mdp" required>
+		</p>
+		<input type="submit" value="Connexion">
+	</form>
 {% endblock %}
