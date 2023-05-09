@@ -1,5 +1,6 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
-from domo.auth.business import test_utilisateur
+from domo.auth.business import test_utilisateur, valider_connexion
+from domo.general.business import recuperer_donnees_actuelles
 
 auth_bp = Blueprint(
     "auth_bp",
@@ -30,17 +31,17 @@ dicomdp = {"login@g.com" : "mdp"}
 def connexion():
     if "mail" in session: #déjà connecté
         flash("Déconnectez-vous pour vous connecter à un autre compte.")
-        redirect(url_for("gen_bp.home"))
+        redirect(url_for("gen_bp.acceuil"))
     if request.method == "POST":
         #gestion du formulaire saisi par l'utilisateur
         entree = request.form
         entreemail = entree['mail']
         entreemdp = entree['mdp']
-        for mail in dicomdp:
-            if mail == entreemail and dicomdp[mail] == entreemdp:
-                session["mail"] = entreemail
-                return render_template("acceuil.html", session=session)
-    flash("Email ou mot de passe invalide, veillez réessayer ")
+        if valider_connexion(entreemail, entreemdp):
+            session["mail"] = entreemail
+            session["co"] = "Oui"
+            return redirect(url_for("gen_bp.acceuil"))
+        flash("Email ou mot de passe invalide, veillez réessayer ")
     return render_template("auth_connexion.html", session=session)
 
 

@@ -2,7 +2,8 @@
 
 {% block section %}
 	<h2>Bienvenue</h2>
-	<h4>Mon tableau de bord : </h4>
-	<p> Température intérieure :  20°c</p>
-	<p> Ventilateur : ON</p>
+	<h4>Mon tableau de bord :</h4>
+	<p> Température intérieure : {{dico['temp']}} °C</p>
+	<p> Ventilateur : {{dico['ventilateur']}}</p>
+	<a href="{{ url_for('gen_bp.commandes') }}"> Commandes manuelles </a>
 {% endblock %}
