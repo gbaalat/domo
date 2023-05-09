@@ -12,7 +12,7 @@
 		
 		<h3 id="auth">
 			{% if session['id'] %}
-			<a href="{{ url_for('auth_bp.deconnexion') }}">Déconnexion</a>
+			<a href="{{ url_for('auth_.deconnexion') }}">Déconnexion</a>
 			{% else %}
 			<a href="{{ url_for('auth_bp.connexion') }}">Se connecter</a>
 			<a href="{{ url_for('auth_bp.inscription') }}">S'inscrire</a>
@@ -34,8 +34,8 @@
         {% block section %} {% endblock %}
     </section>
 
-	<footer>
+	<!--<footer>
 		<p> Terminales Spé NSI 2022-2023</p>
-	</footer>
+	</footer>-->
 </body>
 </html> 
