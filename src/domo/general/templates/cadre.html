@@ -8,7 +8,7 @@
 </head>
 <body> 
 	<header>
-	    <h1>Smart House....</h1>
+	    <h1>Smart House</h1>
 		
 		<h3 id="auth">
 			{% if session['mail'] %}
@@ -16,7 +16,7 @@
 			{% elif session['co'] %}
 			<a href="{{ url_for('auth_bp.inscription') }}">S'inscrire</a>
 			{% else %}
-			<a href="{{ url_for('auth_bp.connexion') }}">Se connecter</a>
+			<a href="{{ url_for('auth_bp.connexion') }}">se connecter</a>
 			{% endif %}
 		</h3>
     </header>

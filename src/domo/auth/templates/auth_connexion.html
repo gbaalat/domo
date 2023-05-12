@@ -1,7 +1,7 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-<nav>
+<!--<nav>
   <ul>
     <li id="login">
       <h2>
@@ -10,7 +10,7 @@
         </a>
       </h2>
 
-      <form action="{{ url_for('auth_bp.connexion') }}" method="post">
+    --><form action="{{ url_for('auth_bp.connexion') }}" method="post"><!--
         <p>
         <label for="mail"> Adresse mail :  </label>
         <input type="email" name="mail" id="mail" required>
@@ -18,35 +18,46 @@
         <p>
         <label for="mdp"> Mot de passe :  </label>
         <input type="password" name="mdp" id="mdp" required>
-        </p>
-        <input type="submit" value="Connexion">
-                <fieldset id="inputs">
-                  <input  id="mail"
-                          type="email"
-                          name="mail"
-                          placeholder="Your email address"
-                          required>
-                  <input  id="mdp"
-                          type="password"
-                          name="mdp"
-                          placeholder="Password"
-                          required>
-                </fieldset>
-                <fieldset id="actions">
-                  <input  type="submit"
-                          id="submit"
-                          value="Log in">
-                  <label>
-                    <input  type="checkbox"
-                            checked="checked">
-                    Keep me signed in
-                  </label>
-                </fieldset>
-        </li>
-        <li id="signup">
+        </p>-->
+        <div class="container">
+          <div class="screen">
+            <div class="screen__content">
+              <div class="login">
+                <div class="login__field">
+                  <i class="login__icon fas fa-user"></i>
+                  <input type="email" class="login__input" name="mail" id="mail" placeholder="mail" required>
+                </div>
+                <div class="login__field">
+                  <i class="login__icon fas fa-lock"></i>
+                  <input type="password" class="login__input" name="mdp" id="mdp" placeholder="Password" required>
+                </div>
+                <button class="button login__submit">
+                  <span class="button__text">Log In Now</span>
+                  <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+              </div>
+              </form>
+              <div class="social-login">
+                <h3>log in via</h3>
+                <div class="social-icons">
+                  <a href="#" class="social-login__icon fab fa-instagram"></a>
+                  <a href="#" class="social-login__icon fab fa-facebook"></a>
+                  <a href="#" class="social-login__icon fab fa-twitter"></a>
+                </div>
+              </div>
+            </div>
+            <div class="screen__background">
+              <span class="screen__background__shape screen__background__shape4"></span>
+              <span class="screen__background__shape screen__background__shape3"></span>		
+              <span class="screen__background__shape screen__background__shape2"></span>
+              <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+          </div>
+        </div>
+<!--       <li id="signup">
           <a href="">Sign up FREE</a>
-      </form>
-    </li>
+    -->
+    <!--</li>
   </ul>
-</nav>
+</nav>-->
 {% endblock %}
