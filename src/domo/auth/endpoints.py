@@ -1,6 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
 from domo.auth.business import test_utilisateur, valider_connexion
-from domo.general.business import recuperer_donnees_actuelles
 
 auth_bp = Blueprint(
     "auth_bp",

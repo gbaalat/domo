@@ -37,5 +37,7 @@ def acceuil():
 def page_non_trouve(error):
     return render_template("404.html"), 404
 
-
+@gen_bp.route("/activventilateur", methods=['POST'])
+def gererventilo():
+    return redirect(url_for("gen_bp.commandes"))
         
