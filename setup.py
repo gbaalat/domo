@@ -16,6 +16,7 @@ INSTALL_REQUIRES = [
     "Flask-SQLAlchemy",
     "python-dateutil",
     "python-dotenv",
+    "Flask-Cors",
     "requests",
     "urllib3",
     "werkzeug",
