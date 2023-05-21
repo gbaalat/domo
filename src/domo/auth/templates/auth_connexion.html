@@ -38,7 +38,18 @@
               </div>
               </form>
               <div class="social-login">
-                <h3>log in via</h3>
+              <form action="{{ url_for('auth_bp.inscription') }}" method="get">
+                <h3>
+                  <button class="button sign_up">
+                    <span class="button__sign">sign up</span>
+                    <i class="button__icon_sign"></i>
+                  </button>
+                <!--<button class="register">
+                  <span class="button_text">sign up</span>
+                  <i class="button__icon fas fa-chevron-right"></i>
+                </button>-->
+                </h3>
+              </form>
                 <div class="social-icons">
                   <a href="#" class="social-login__icon fab fa-instagram"></a>
                   <a href="#" class="social-login__icon fab fa-facebook"></a>
@@ -51,7 +62,7 @@
               <span class="screen__background__shape screen__background__shape3"></span>		
               <span class="screen__background__shape screen__background__shape2"></span>
               <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
+            </div>	
           </div>
         </div>
 <!--       <li id="signup">

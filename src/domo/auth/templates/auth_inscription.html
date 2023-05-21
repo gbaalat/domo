@@ -1,5 +1,52 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-	<h2>Inscription</h2>
+	<form action="{{ url_for('gen_bp.acceuil') }}" method="get">
+	<div class="container">
+		<div class="screen">
+		  <div class="screen__content">
+			<h4>Inscription</h4>
+			<div class="login">
+			  <div class="login__field">
+				<i class="login__icon fas fa-user"></i>
+				<input type="email" class="login__input" name="mail" id="mail" placeholder="mail" required>
+			  </div>
+			  <div class="login__field">
+				<i class="login__icon fas fa-lock"></i>
+				<input type="password" class="login__input" name="mdp" id="mdp" placeholder="Password" required>
+			  </div>
+			  <button class="button login__submit">
+				<span class="button__text">submit</span>
+				<i class="button__icon fas fa-chevron-right"></i>
+			  </button>
+			</div>
+			</form>
+			<div class="social-login">
+			<form action="{{ url_for('auth_bp.connexion') }}" method="get">
+			  <h3>
+				<button class="button sign_up">
+				  <span class="button__sign">return</span>
+				  <i class="button__icon_sign"></i>
+				</button>
+			  <!--<button class="register">
+				<span class="button_text">sign up</span>
+				<i class="button__icon fas fa-chevron-right"></i>
+			  </button>-->
+			  </h3>
+			</form>
+			  <div class="social-icons">
+				<a href="#" class="social-login__icon fab fa-instagram"></a>
+				<a href="#" class="social-login__icon fab fa-facebook"></a>
+				<a href="#" class="social-login__icon fab fa-twitter"></a>
+			  </div>
+			</div>
+		  </div>
+		  <div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		  </div>	
+		</div>
+	  </div>
 {% endblock %}

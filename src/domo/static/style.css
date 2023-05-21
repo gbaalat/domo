@@ -9,15 +9,83 @@
 }
 */
 h1 {
+	width: 100%;
+	font-size: 50px;
+	margin-top: 3%;
+	margin-bottom: -2%;
 	text-align: center;
-	color: linear-gradient(90deg, #C7C5F4, #776BCC);
-	box-shadow: 0px 0px 24px #5C5696;
-}
-/*
-h2 {
-	text-align: center;
+	text-shadow:   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000,
+     1px 1px 2px #141414,
+     1px 1px 3px #141414,
+     1px 1px 5px #141414,
+     1px 1px 7px #141414;
+	/*text-shadow:   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000,
+     1px 1px 2px #141414,
+     1px 1px 3px #141414,
+     1px 1px 5px #141414,
+     1px 1px 7px #141414,
+     1px 1px 10px #141414,
+     1px 1px 12px #141414,
+     1px 1px 18px #141414;*/
 }
 
+p1{
+	color:#fff;
+}
+p2{
+	color:#7C78B8;
+}
+
+.sign_up{
+	text-decoration:none;
+	background: #fff;
+	font-size: 14px;
+	margin-top: 60px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 70%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.sign_up:active,
+.sign_up:focus,
+.sign_up:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+
+.button__icon_sign {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+
+h4{
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 0%;
+	text-align: center;
+	background: linear-gradient(48deg, #776BCC 49%, #fff 51%);
+	background-clip: border-box;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/*
 h3 {
 	text-align: right;
 }
