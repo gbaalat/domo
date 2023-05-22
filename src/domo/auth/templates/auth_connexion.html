@@ -1,24 +1,7 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-<!--<nav>
-  <ul>
-    <li id="login">
-      <h2>
-        <a id="login-trigger" href="#">
-          Log in <span>▼</span>
-        </a>
-      </h2>
-
-    --><form action="{{ url_for('auth_bp.connexion') }}" method="post"><!--
-        <p>
-        <label for="mail"> Adresse mail :  </label>
-        <input type="email" name="mail" id="mail" required>
-        </p>
-        <p>
-        <label for="mdp"> Mot de passe :  </label>
-        <input type="password" name="mdp" id="mdp" required>
-        </p>-->
+<form action="{{ url_for('auth_bp.connexion') }}" method="post">
         <div class="container">
           <div class="screen">
             <div class="screen__content">
@@ -44,17 +27,8 @@
                     <span class="button__sign">sign up</span>
                     <i class="button__icon_sign"></i>
                   </button>
-                <!--<button class="register">
-                  <span class="button_text">sign up</span>
-                  <i class="button__icon fas fa-chevron-right"></i>
-                </button>-->
                 </h3>
               </form>
-                <div class="social-icons">
-                  <a href="#" class="social-login__icon fab fa-instagram"></a>
-                  <a href="#" class="social-login__icon fab fa-facebook"></a>
-                  <a href="#" class="social-login__icon fab fa-twitter"></a>
-                </div>
               </div>
             </div>
             <div class="screen__background">
@@ -65,10 +39,4 @@
             </div>	
           </div>
         </div>
-<!--       <li id="signup">
-          <a href="">Sign up FREE</a>
-    -->
-    <!--</li>
-  </ul>
-</nav>-->
 {% endblock %}
