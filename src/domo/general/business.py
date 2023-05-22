@@ -3,5 +3,5 @@ def recuperer_donnees_actuelles():
     dico = {'temp' : 20, 'ventilateur' : None}
     return dico
 
-def activer_ventilateur():
+def activer_ventilateur(on_off):
     pass 
