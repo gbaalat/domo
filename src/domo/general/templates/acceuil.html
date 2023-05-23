@@ -5,5 +5,6 @@
 	<h4>Mon tableau de bord :</h4>
 	<p> Température intérieure : {{dico['temp']}} °C</p>
 	<p> Ventilateur : {{dico['ventilateur']}}</p>
+	<p> Humidité : {{dico['humidité']}} %</p>
 	<a href="{{ url_for('gen_bp.commandes') }}"> Commandes manuelles </a>
 {% endblock %}

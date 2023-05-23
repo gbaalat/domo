@@ -25,7 +25,7 @@ def inscription():
             flash("email incorrect")
     return render_template("auth_inscription.html")
 
-dicomdp = {"login@g.com" : "mdp"}
+
 @auth_bp.route("/connexion", methods=["GET", "POST"])
 def connexion():
     if "mail" in session: #déjà connecté

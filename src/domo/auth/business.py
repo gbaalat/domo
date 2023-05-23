@@ -9,5 +9,9 @@ def test_utilisateur(email):
     """fonction factice"""
     return Utilisateur.find_by_email(email)
 
+dicomdp = {"login@g.com" : "mdp"}
 def valider_connexion(entreemail, entreemdp):
-    return True
+    for key in dicomdp:
+        if key == entreemail and dicomdp[key] == entreemdp:
+            return True
+    return False
