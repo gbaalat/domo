@@ -21,7 +21,7 @@ radios.forEach(element => {
 });
 
 function lumieres(e) {
-    // envoie une requête POST à la route /activventilateur, le json {"value ..."} sera dans le corps de la requête POST
+    // envoie une requête POST à la route /lumieres, le json {"value ..."} sera dans le corps de la requête POST
     axios.post('/lumieres', {"value": e.target.value}).then(
         // .then() indique la fonction à exécuter à réception de la réponse du serveur
         (response) => {

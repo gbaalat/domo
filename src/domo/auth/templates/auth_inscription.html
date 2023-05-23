@@ -1,7 +1,7 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-	<form action="{{ url_for('gen_bp.acceuil') }}" method="get">
+	<form action="{{ url_for('auth_bp.inscription') }}" method="post">
 	<div class="container">
 		<div class="screen">
 		  <div class="screen__content">
@@ -20,9 +20,7 @@
 				<i class="button__icon fas fa-chevron-right"></i>
 			  </button>
 			</div>
-			</form>
 			<div class="social-login">
-			<form action="{{ url_for('auth_bp.connexion') }}" method="get">
 			  <h3>
 				<button class="button sign_up">
 				  <span class="button__sign">return</span>

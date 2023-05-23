@@ -18,4 +18,4 @@ def couleurstoRGB(couleurs):
 def gerer_lumieres(couleurs):
     """Modifie la base de données et change la couleur de la lumière, ne renvoie rien"""
     rgb = couleurstoRGB(couleurs)
-    pass
+    return rgb

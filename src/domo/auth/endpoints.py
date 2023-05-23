@@ -9,21 +9,21 @@ auth_bp = Blueprint(
     url_prefix="/auth",
 )
 
-@auth_bp.route("/inscription", methods=["GET", "POST"])
+"""@auth_bp.route("/inscription", methods=["GET", "POST"])
 def inscription():
-    """Exemple fictif de gestion de l'inscription:
+    Exemple fictif de gestion de l'inscription:
        on suppose que id est rentrée dans l'objet session de Flask
-       lorsque l'utilisateur est connecté"""
+       lorsque l'utilisateur est connecté
     if "mail" in session:
         return redirect(url_for("gen_bp.home")),flash("Déconnectez-vous pour vous inscrire.")
     if request.method == "POST":
-        email=str(request.form["email"]) #recup du champ mail du formulaire HTML
+        email=str(request.form["mail"]) #recup du champ mail du formulaire HTML
         if test_utilisateur(email): #fonction dans business.py
             session['mail'] = email #identificateur de connexion
             flash(f"email OK") #message à destination de l'utilisateur
         else:
             flash("email incorrect")
-    return render_template("auth_inscription.html")
+    return render_template("auth_inscription.html")"""
 
 
 @auth_bp.route("/connexion", methods=["GET", "POST"])
