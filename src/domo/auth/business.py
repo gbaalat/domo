@@ -7,7 +7,7 @@ from domo import db
 dicomdp = {"login@g.com" : "mdp"}
 def test_utilisateur(email):
     """fonction factice"""
-    return Utilisateur.find_by_email(email)
+    return True # Utilisateur.find_by_email(email)
 
 dicomdp = {"login@g.com" : "mdp"}
 def valider_connexion(entreemail, entreemdp):

@@ -11,7 +11,7 @@ function action_ventilo(e) {
         }
     );
 }
-radios = document.querySelectorAll('input[name="activerventilo"]');
+let radios = document.querySelectorAll('input[name="activerventilo"]');
 /*  forEach est une méthode des tableaux (ici radios)
     elle applique une fonction (ici "element => {...}" est une fonction anonyme)
     à chaque élément de ce tableau (on ajoute un évènement onChange sur chaque input radio)
@@ -33,11 +33,11 @@ function lumieres(e) {
         }
     );
 }
-radios = document.querySelectorAll('input[name="Couleurs"]');
+let couleurs = document.querySelectorAll('input[name="Couleurs"]');
 /*  forEach est une méthode des tableaux (ici radios)
     elle applique une fonction (ici "element => {...}" est une fonction anonyme)
     à chaque élément de ce tableau (on ajoute un évènement onChange sur chaque input radio)
 */
-radios.forEach(element => {
+couleurs.forEach(element => {
     element.addEventListener('change', lumieres, false);    
 });
