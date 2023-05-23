@@ -2,8 +2,11 @@
 
 {% block section %}
 
-	
-	<a href="{{ url_for('gen_bp.commandes') }}"> Commandes manuelles </a>7
+	<h2>Bienvenue</h2>
+	<p> Température intérieure : {{dico['temp']}} °C</p>
+	<p> Ventilateur : {{dico['ventilateur']}}</p>
+	<p> Humidité : {{dico['humidité']}} %</p>
+	<a href="{{ url_for('gen_bp.commandes') }}"> Commandes manuelles </a>
 	<div class="container">
 		<div class="screen">
 		    <div class="screen__content">

@@ -3,7 +3,7 @@ from http import HTTPStatus
 import json
 
 def test_active_ventilo(client):
-    return client.post(
+    a= client.post(
         url_for("gen_bp.gererventilo"),
         data=json.dumps({"value": "ON"}),
         content_type="application/json",

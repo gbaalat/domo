@@ -4,9 +4,16 @@
 	<h2>Commandes manuelles</h2>
     <a href="{{ url_for('gen_bp.acceuil') }}"> Retour à l'acceuil</a>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="{{ url_for('gen_bp.static', filename='commandes_manu.js') }}"></script>
+    <script src="{{ url_for('gen_bp.static', filename='commandes_manu.js') }}" defer="defer"></script>
 
-    <label> Ventilateur : <input type="radio" name="activerventilo" value="ON" id="ventilateur">ON
-        <input type="radio" name="activerventilo"value="OFF" id="ventilateur">OFF</label>
+
+    <label> Ventilateur : 
+        <input type="radio" name="activerventilo" value="ON">ON
+        <input type="radio" name="activerventilo"value="OFF">OFF</label>
+
+    <label> Couleurs lumières : 
+        <input type="radio" name="Couleurs" value="rouge">Rouge
+        <input type="radio" name="Couleurs" value="vert">Vert
+        <input type="radio" name="Couleurs" value="bleu">Bleu</label>
+
 {% endblock %}
