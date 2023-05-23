@@ -1,24 +1,7 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-<!--<nav>
-  <ul>
-    <li id="login">
-      <h2>
-        <a id="login-trigger" href="#">
-          Log in <span>▼</span>
-        </a>
-      </h2>
-
-    --><form action="{{ url_for('auth_bp.connexion') }}" method="post"><!--
-        <p>
-        <label for="mail"> Adresse mail :  </label>
-        <input type="email" name="mail" id="mail" required>
-        </p>
-        <p>
-        <label for="mdp"> Mot de passe :  </label>
-        <input type="password" name="mdp" id="mdp" required>
-        </p>-->
+<form action="{{ url_for('auth_bp.connexion') }}" method="post">
         <div class="container">
           <div class="screen">
             <div class="screen__content">
@@ -38,12 +21,14 @@
               </div>
               </form>
               <div class="social-login">
-                <h3>log in via</h3>
-                <div class="social-icons">
-                  <a href="#" class="social-login__icon fab fa-instagram"></a>
-                  <a href="#" class="social-login__icon fab fa-facebook"></a>
-                  <a href="#" class="social-login__icon fab fa-twitter"></a>
-                </div>
+              <form action="{{ url_for('auth_bp.inscription') }}" method="get">
+                <h3>
+                  <button class="button sign_up">
+                    <span class="button__sign">sign up</span>
+                    <i class="button__icon_sign"></i>
+                  </button>
+                </h3>
+              </form>
               </div>
             </div>
             <div class="screen__background">
@@ -51,13 +36,7 @@
               <span class="screen__background__shape screen__background__shape3"></span>		
               <span class="screen__background__shape screen__background__shape2"></span>
               <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
+            </div>	
           </div>
         </div>
-<!--       <li id="signup">
-          <a href="">Sign up FREE</a>
-    -->
-    <!--</li>
-  </ul>
-</nav>-->
 {% endblock %}
