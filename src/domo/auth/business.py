@@ -11,6 +11,7 @@ def test_utilisateur(email):
 
 dicomdp = {"login@g.com" : "mdp"}
 def valider_connexion(entreemail, entreemdp):
+    """renvoie un booléen indiquant si les identifiants sont valides"""
     for key in dicomdp:
         if key == entreemail and dicomdp[key] == entreemdp:
             return True
