@@ -4,9 +4,10 @@ from flask import (
     session,
     url_for,
     render_template,
-    request
+    request,
+    jsonify
 )
-from domo.general.business import recuperer_donnees_actuelles
+from domo.general.business import recuperer_donnees_actuelles, activer_ventilateur, gerer_lumieres
 
 gen_bp = Blueprint(
     "gen_bp",
@@ -27,15 +28,35 @@ def home():
 
 @gen_bp.route("/commandes")
 def commandes():
-    return render_template("commandes_manu.html")
+    if "mail" in session:
+        return render_template("commandes_manu.html")
+    else : 
+        return redirect(url_for("gen_bp.home"))
 
 @gen_bp.route("/acceuil")
 def acceuil():
-    return render_template("acceuil.html", session=session, dico=recuperer_donnees_actuelles())
+    if "mail" in session:
+        return render_template("acceuil.html", session=session, dico=recuperer_donnees_actuelles())
+    else : 
+        return redirect(url_for("gen_bp.home"))
 
 @gen_bp.app_errorhandler(404)
 def page_non_trouve(error):
     return render_template("404.html"), 404
 
+@gen_bp.route("/activventilateur", methods=['POST'])
+def gererventilo():
+    if "mail" in session:
+        on_off = request.json["value"]  # axios envoie les données en json -> request.json au lieu de request.form
+        activer_ventilateur(on_off)
+        return jsonify({"ven": True}) # renvoie un "accusé réception" au format json
+    return jsonify({"ven": False})    # ici, pas connecté !
 
-        
+@gen_bp.route("/lumieres", methods=['POST'])
+def lumieres():
+    if 'mail' in session:
+        lum = request.json["value"]  # axios envoie les données en json -> request.json au lieu de request.form
+        gerer_lumieres(lum)
+        return jsonify({"lum": True}) # renvoie un "accusé réception" au format json
+    return jsonify({"lum": False})    # ici, pas connecté !
+

@@ -1,19 +1,15 @@
-from domo.models.donnees_actuelles import Donnees_actuelles
-from domo.models.historique import historique
+from domo.models.donnees_actuelles import donnees_actuelles 
+from domo.models.historique import historique 
 
 def recuperer_donnees_actuelles():
     """revoie un dictionnaire avec les données actuelles 
        si la valeur n'a pas pu être récuperer mettre _"""
-    ventilateur_mode = Donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_mode').first()
-    ventilateur_ctrl = Donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_ctrl').first()
-    ventilateur_set_temp_seuil = Donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_set_temp_seuil').first()
-    latest_temp = historique.query.order_by(desc(historique.date_et_heur_prise)).limit(1).all()
-    dico["temp"] = latest_temp.temperature
-    dico["humidité"] = latest_temp.humidite
-    dico["ventilateur_mode"] = ventilateur_mode.valeur
-    dico["ventilateur_ctrl"] = ventilateur_ctrl.valeur
-    dico["ventilateur_set_temp_seuil"] = ventilateur_set_temp_seuil.valeur
-    dico = {}
+    dico ={}
+    dico["ventilateur_mode"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_mode').first().valeur
+    dico["ventilateur_ctrl"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_ctrl').first().valeur
+    dico["ventilateur_actifs"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_actifs').first().valeur
+    dico["temperature"] = historique.query.order_by(desc('date_et_heur_prise')).first().temperature
+    dico["humidite"] = historique.query.order_by(desc('date_et_heur_prise')).first().humidite
     return dico
 
 def activer_ventilateur(on_off) -> None:

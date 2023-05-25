@@ -1,6 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
 from domo.auth.business import test_utilisateur, valider_connexion
-from domo.general.business import recuperer_donnees_actuelles
 
 auth_bp = Blueprint(
     "auth_bp",
@@ -18,7 +17,7 @@ def inscription():
     if "mail" in session:
         return redirect(url_for("gen_bp.home")),flash("Déconnectez-vous pour vous inscrire.")
     if request.method == "POST":
-        email=str(request.form["email"]) #recup du champ mail du formulaire HTML
+        email=str(request.form["mail"]) #recup du champ mail du formulaire HTML
         if test_utilisateur(email): #fonction dans business.py
             session['mail'] = email #identificateur de connexion
             flash(f"email OK") #message à destination de l'utilisateur
@@ -26,7 +25,7 @@ def inscription():
             flash("email incorrect")
     return render_template("auth_inscription.html")
 
-dicomdp = {"login@g.com" : "mdp"}
+
 @auth_bp.route("/connexion", methods=["GET", "POST"])
 def connexion():
     if "mail" in session: #déjà connecté
