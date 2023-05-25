@@ -1,12 +1,12 @@
 from domo import db
 from datetime import datetime
 
-class historique(db.Model):
+class Historique(db.Model):
     """Modèle temperature actuelle pour la base de données"""
     date_et_heur_prise = db.Column(db.DateTime, default=datetime.now())
     temperature = db.Column(db.Integer)
     humidite = db.Column(db.Integer)
-    id_historique = db.Column(db.Integer, primary_key=True)
+    id_historique = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
 
     def __repr__(self):

@@ -1,14 +1,15 @@
 from domo import db
 
-class etat_lumiere(db.Model):
+class Etat_lumiere(db.Model):
     """Modèle donnees actuelles pour la base de données"""
-    rouge = db.column(db.Interger)
-    verts = db.column(db.Interger)
-    bleu = db.column(db.Interger)
-    id_lumiere = db.Column(db.Integer, primary_key=True)
+    
+    id_lumiere = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    rouge = db.Column(db.Integer)
+    vert = db.Column(db.Integer)
+    bleu = db.Column(db.Integer)
 
 
     def __repr__(self):
         me = f"<donnees id_lumiere={self.id_lumiere}"
-        me += f" bleu={self.date_et_heur_prbleuise}, verts={self.verts}, rouge={self.rouge}>"
+        me += f" bleu={self.bleu}, verts={self.vert}, rouge={self.rouge}>"
         return me

@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Donnees_actuelles(db.Model):
     """Modèle donnees actuelles pour la base de données"""
-
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     type_de_donnees = db.Column(db.String(50))
     date_et_heur_prise = db.Column(db.DateTime, default=datetime.now())
     valeur = db.Column(db.Integer)

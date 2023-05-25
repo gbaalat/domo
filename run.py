@@ -9,8 +9,8 @@ import os
 from domo import create_app, db
 from domo.models.utilisateur import Utilisateur
 from domo.models.donnees_actuelles import Donnees_actuelles
-from domo.models.etat_lumiere import etat_lumiere
-from domo.models.historique import historique
+from domo.models.etat_lumiere import Etat_lumiere
+from domo.models.historique import Historique
 
 app = create_app(os.getenv("FLASK_ENV", "development"))
 
@@ -20,7 +20,7 @@ def shell():
         "db": db,
         "Utilisateur": Utilisateur,
         "Donnees_actuelles": Donnees_actuelles,
-        "etat_lumiere": etat_lumiere,
-        "historique": historique
+        "etat_lumiere": Etat_lumiere,
+        "historique": Historique
     }
 

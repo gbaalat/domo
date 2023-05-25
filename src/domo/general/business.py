@@ -1,15 +1,22 @@
-from domo.models.donnees_actuelles import donnees_actuelles 
-from domo.models.historique import historique 
+from domo.models.donnees_actuelles import Donnees_actuelles 
+from domo.models.historique import Historique 
+
 
 def recuperer_donnees_actuelles():
     """revoie un dictionnaire avec les données actuelles 
        si la valeur n'a pas pu être récuperer mettre _"""
     dico ={}
-    dico["ventilateur_mode"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_mode').first().valeur
-    dico["ventilateur_ctrl"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_ctrl').first().valeur
-    dico["ventilateur_actifs"] = donnees_actuelles.query.filter_by(type_de_donnees='ventilateur_actifs').first().valeur
-    dico["temperature"] = historique.query.order_by(desc('date_et_heur_prise')).first().temperature
-    dico["humidite"] = historique.query.order_by(desc('date_et_heur_prise')).first().humidite
+    mode = Donnees_actuelles.query.filter(Donnees_actuelles.type_de_donnees=='ventilateur_mode').first()
+    ctrl = Donnees_actuelles.query.filter(Donnees_actuelles.type_de_donnees=='ventilateur_ctrl').first()
+    actif = Donnees_actuelles.query.filter(Donnees_actuelles.type_de_donnees=='ventilateur_actifs').first()
+    temp = Historique.query.order_by(Historique.date_et_heur_prise.desc()).first()
+    hum = Historique.query.order_by(Historique.date_et_heur_prise.desc()).first()
+    # "or" pour gérer des valeurs par défaut : si pas de données (None) .valeur plante
+    dico["ventilateur_mode"] = 1 if mode is None else mode.valeur
+    dico["ventilateur_ctrl"] = 0 if ctrl is None else ctrl.valeur
+    dico["ventilateur"] = 0 if actif is None else actif.valeur
+    dico["temp"] = -274 if temp is None else temp.temperature
+    dico["humidité"] = -1 if hum is None else hum.humidite
     return dico
 
 def activer_ventilateur(on_off) -> None:
