@@ -2,19 +2,21 @@
 
 {% block section %}
 
-	<h2>Bienvenue</h2>
-	<p> Température intérieure : {{dico['temp']}} °C</p>
-	<p> Ventilateur : {{dico['ventilateur']}}</p>
-	<p> Humidité : {{dico['humidité']}} %</p>
-	<a href="{{ url_for('gen_bp.commandes') }}"> Commandes manuelles </a>
 	<div class="container">
 		<div class="screen">
 		    <div class="screen__content">
-			<h4>My dashboard</h4>
+			<h4>Dashboard</h4>
 			<h2>
 				<p> Temperature inside : {{dico['temp']}} °C</p>
 				<p> Fan : {{dico['ventilateur']}}</p>
+				<p> Humidité : {{dico['humidité']}} %</p>
 			</h2>
+			<div class="login">
+			<button class="button login__submit">
+				<span class="button__text">	<a href="{{ url_for('gen_bp.commandes') }}">manual controls</a></span>
+				<i class="button__icon fas fa-chevron-right"></i>
+			</button>
+			</div>
 		<div class="social-login">
 			<form action="{{ url_for('auth_bp.deconnexion') }}" method="get">
 			  <h3>
