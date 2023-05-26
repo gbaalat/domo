@@ -12,11 +12,11 @@
 		
 		<h3 id="auth">
 			{% if session['mail'] %}
-			<a href="{{ url_for('auth_bp.deconnexion') }}">Déconnexion</a>
+			<a href="{{ url_for('auth_bp.deconnexion') }}"></a>
 			{% elif session['co'] %}
 			<a href="{{ url_for('auth_bp.inscription') }}"></a>
 			{% else %}
-			<a href="{{ url_for('auth_bp.connexion') }}">se connecter</a>
+			<a href="{{ url_for('auth_bp.connexion') }}"></a>
 			{% endif %}
 		</h3>
     </header>

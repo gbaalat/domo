@@ -7,7 +7,7 @@ from flask import (
     request,
     jsonify
 )
-from domo.general.business import recuperer_donnees_actuelles, activer_ventilateur_auto, activer_ventilateur_manu, gerer_lumieres
+from domo.general.business import recuperer_donnees_actuelles, mode_auto_ventilateur, activer_ventilateur_manu, gerer_lumieres
 
 gen_bp = Blueprint(
     "gen_bp",
@@ -48,7 +48,7 @@ def page_non_trouve(error):
 def manu_ventilo():
     if "mail" in session:
         on_off = request.json["value"]  # axios envoie les données en json -> request.json au lieu de request.form
-        activer_ventilateur_auto(on_off)
+        mode_auto_ventilateur(on_off)
         return jsonify({"ven": True}) # renvoie un "accusé réception" au format json
     return jsonify({"ven": False})    # ici, pas connecté !
 

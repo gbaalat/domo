@@ -1,6 +1,7 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
+
 	<h2>Bienvenue</h2>
 	<p> Température intérieure : {{dico['temp']}} °C</p>
 	<p> Ventilateur : {{dico['ventilateur']}}</p>
@@ -9,15 +10,29 @@
 	<div class="container">
 		<div class="screen">
 		    <div class="screen__content">
-			<h4>Mon tableau de bord</h4>
-	<div class="screen__background">
-		<span class="screen__background__shape screen__background__shape4"></span>
-		<span class="screen__background__shape screen__background__shape3"></span>		
-		<span class="screen__background__shape screen__background__shape2"></span>
-		<span class="screen__background__shape screen__background__shape1"></span>
-	</div>
+			<h4>My dashboard</h4>
+			<h2>
+				<p> Temperature inside : {{dico['temp']}} °C</p>
+				<p> Fan : {{dico['ventilateur']}}</p>
+			</h2>
+		<div class="social-login">
+			<form action="{{ url_for('auth_bp.deconnexion') }}" method="get">
+			  <h3>
+				<button class="button sign_up">
+				  <span class="button__sign">disconnect</span>
+				  <i class="button__icon_sign"></i>
+				</button>
+			  </h3>
+			</form>
+		  </div>
 		</div>
-	</div>
-</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	  </div>
+    </div>
 
 {% endblock %}

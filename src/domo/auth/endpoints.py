@@ -13,7 +13,7 @@ auth_bp = Blueprint(
 def inscription():
     """Exemple fictif de gestion de l'inscription:
        on suppose que id est rentrée dans l'objet session de Flask
-       lorsque l'utilisateur est connecté
+       lorsque l'utilisateur est connecté"""
     if "mail" in session:
         return redirect(url_for("gen_bp.home")),flash("Déconnectez-vous pour vous inscrire.")
     if request.method == "POST":
@@ -23,7 +23,7 @@ def inscription():
             flash(f"email OK") #message à destination de l'utilisateur
         else:
             flash("email incorrect")
-    return render_template("auth_inscription.html")"""
+    return render_template("auth_inscription.html")
 
 
 @auth_bp.route("/connexion", methods=["GET", "POST"])
