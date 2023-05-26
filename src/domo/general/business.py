@@ -19,7 +19,7 @@ def recuperer_donnees_actuelles():
     dico["humidité"] = -1 if hum is None else hum.humidite
     return dico
 
-def activer_ventilateur(on_off) -> None:
+def activer_ventilateur_manu(on_off) -> None:
     """Publie la modification via MQTT : 
         -> mode 0 (manuel) et ctrl en fonction de la variable on_off   
        la modif sera ensuite enregistrée en base de données"""
