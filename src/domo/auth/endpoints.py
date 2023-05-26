@@ -40,7 +40,7 @@ def connexion():
             session["mail"] = entreemail
             session["co"] = "Oui"
             return redirect(url_for("gen_bp.acceuil"))
-        flash("Email ou mot de passe invalide ")
+        flash("Email ou mot de passe invalide")
     return render_template("auth_connexion.html", session=session)
 
 
