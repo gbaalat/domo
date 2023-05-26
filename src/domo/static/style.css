@@ -17,6 +17,7 @@ h1 {
 a{
 	text-decoration: none;
 	color:#4C489D;
+	width: 100%;
 }
 
 p{
@@ -253,4 +254,12 @@ body {
 	bottom: 0px;
 	right: 0px;
 	color: #fff;
+}
+
+.button__text{
+	width: 100%;
+}
+
+.button__sign{
+	width: 100%;
 }
