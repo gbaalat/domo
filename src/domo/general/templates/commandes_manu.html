@@ -1,27 +1,57 @@
 {% extends 'cadre.html' %}
 
 {% block section %}
-	<h2>Commandes manuelles</h2>
-    <a href="{{ url_for('gen_bp.acceuil') }}"> Retour à l'acceuil</a>
 
-    <script src="{{ url_for('gen_bp.static', filename='commandes_manu.js') }}" defer="defer"></script>
+<script src="{{ url_for('gen_bp.static', filename='commandes_manu.js') }}" defer="defer"></script>
 
-    <label> Choix du mode : 
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+	        <h4>Manual Controls</h4>
+    <h5>
+    <p>
+    <label>Fan :
         <input type="radio" name="choix" value="manu">manu
-        <input type="radio" name="choix" value="auto">auto</label>
-
-    <label> Ventilateur mode manu : 
-        <input type="radio" name="activerventilo" value="ON">ON
-        <input type="radio" name="activerventilo" value="OFF">OFF</label>
-
-    <label> Ventilateur mode auto : 
+        <input type="radio" name="choix" value="auto">auto
+    </label>
+    </p>
+    <div>
+        <p>
+            <input type="radio" name="activerventilo" value="ON">ON
+            <input type="radio" name="activerventilo" value="OFF">OFF
+        </p>
+        <p> 
         <input type="text" name="temp" placeholder="température seuil">
         <button id="settemp">Set temperature</button>
-    
-
-    <label> Couleurs lumières : 
-        <input type="radio" name="Couleurs" value="rouge">Rouge
-        <input type="radio" name="Couleurs" value="vert">Vert
-        <input type="radio" name="Couleurs" value="bleu">Bleu</label>
+        </p>
+    </div>
+    <p>
+    <label> light :
+            <select>
+                <option name="Couleurs" value="rouge">RED</option>
+                <option name="Couleurs" value="vert">GREEN</option>
+                <option name="Couleurs" value="bleu">BLUE</option>
+                <option name="" value="">OFF</option>
+            </select>
+    </label>
+    </p>
+    </h5>
+    <div class="social-login">
+          <h3>
+            <button class="button sign_up">
+                <div class="button__text"><a href="{{ url_for('gen_bp.acceuil') }}">Back</a></div>
+              <i class="button__icon_sign"></i>
+            </button>
+          </h3>
+      </div>
+    </div>
+    <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>		
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
