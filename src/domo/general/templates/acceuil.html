@@ -13,7 +13,7 @@
 			</h2>
 			<div class="login">
 			<button class="button login__submit">
-				<span class="button__text">	<a href="{{ url_for('gen_bp.commandes') }}">manual controls</a></span>
+				<div class="button__text"><a href="{{ url_for('gen_bp.commandes') }}">manual controls</a></div>
 				<i class="button__icon fas fa-chevron-right"></i>
 			</button>
 			</div>
@@ -21,7 +21,7 @@
 			<form action="{{ url_for('auth_bp.deconnexion') }}" method="get">
 			  <h3>
 				<button class="button sign_up">
-				  <span class="button__sign">disconnect</span>
+				  <div class="button__sign">disconnect</div>
 				  <i class="button__icon_sign"></i>
 				</button>
 			  </h3>
