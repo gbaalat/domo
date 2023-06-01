@@ -7,18 +7,21 @@
     <script src="{{ url_for('gen_bp.static', filename='commandes_manu.js') }}" defer="defer"></script>
 
     <label> Choix du mode : 
-        <input type="radio" name="choix" value="manu">manu
-        <input type="radio" name="choix" value="auto">auto</label>
+        <input type="radio" class = "mode" name="choix"  value="manu">manu
+        <input type="radio" class= "mode" name="choix"  value="auto">auto</label>
 
-    <label> Ventilateur mode manu : 
+    <div id="manu"> <label> Ventilateur mode manu : 
         <input type="radio" name="activerventilo" value="ON">ON
         <input type="radio" name="activerventilo" value="OFF">OFF</label>
 
+    </div>
+
+    <div id="auto">
     <label> Ventilateur mode auto : 
         <input type="text" name="temp" placeholder="température seuil">
-        <button id="settemp">Set temperature</button>
-    
+        <button id="settemp">Set temperature</button></label>
 
+    </div>
     <label> Couleurs lumières : 
         <input type="radio" name="Couleurs" value="rouge">Rouge
         <input type="radio" name="Couleurs" value="vert">Vert
