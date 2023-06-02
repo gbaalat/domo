@@ -21,12 +21,16 @@
           <input type="radio" name="activerventilo" value="OFF">OFF
         </p>
     </div>
+   </h5>
     <div id="auto">
-        <p>
-          <input type="text" name="temp" placeholder="température seuil">
-          <button id="settemp">Set temperature</button>
-        </p>
+      <div class="set">
+			  <div class="set__field">
+				<i class="login__icon fas fa-user"></i>
+          <input type="text" class="set__input" name="temp" placeholder="°C">
+          <button class="button set__temp" id="settemp">set temperature</button>
+        </div>
       </div>
+    </div>
     <p>
     <label> light :
             <select>
@@ -37,7 +41,6 @@
             </select>
     </label>
     </p>
-    </h5>
     <div class="social-login">
           <h3>
             <button class="button sign_up">
