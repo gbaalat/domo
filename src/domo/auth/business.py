@@ -12,7 +12,8 @@ def test_utilisateur(email):
 dicomdp = {"login@g.com" : "mdp"}
 def valider_connexion(entreemail, entreemdp):
     """renvoie un booléen indiquant si les identifiants sont valides"""
-    for key in dicomdp:
-        if key == entreemail and dicomdp[key] == entreemdp:
+    u = Utilisateur.query.filter(Utilisateur.email==entreemail).first()
+    if u is not None:
+        if u.mdp == entreemdp:     
             return True
     return False
