@@ -15,21 +15,21 @@ def inscription():
        on suppose que id est rentrée dans l'objet session de Flask
        lorsque l'utilisateur est connecté"""
     if "mail" in session:
-        return redirect(url_for("gen_bp.home")),flash("Déconnectez-vous pour vous inscrire.")
+        return redirect(url_for("gen_bp.home")),flash("Log out to register")
     if request.method == "POST":
         email=str(request.form["mail"]) #recup du champ mail du formulaire HTML
         if test_utilisateur(email): #fonction dans business.py
             session['mail'] = email #identificateur de connexion
-            flash(f"email OK") #message à destination de l'utilisateur
+            flash(f"valid email") #message à destination de l'utilisateur
         else:
-            flash("email incorrect")
+            flash("Invalid email")
     return render_template("auth_inscription.html")
 
 
 @auth_bp.route("/connexion", methods=["GET", "POST"])
 def connexion():
     if "mail" in session: #déjà connecté
-        flash("Déconnectez-vous pour vous connecter à un autre compte.")
+        flash("Sign out to sign in to another account")
         redirect(url_for("gen_bp.acceuil"))
     if request.method == "POST":
         #gestion du formulaire saisi par l'utilisateur
@@ -40,12 +40,12 @@ def connexion():
             session["mail"] = entreemail
             session["co"] = "Oui"
             return redirect(url_for("gen_bp.acceuil"))
-        flash("Email ou mot de passe invalide")
+        flash("Invalid email or password")
     return render_template("auth_connexion.html", session=session)
 
 
 @auth_bp.route("/deconnexion")
 def deconnexion():
     session.pop("mail") # on supprime id de l'objet session
-    flash("Vous vous êtes bien déconnecté(e)")
+    flash("You have successfully logged out")
     return redirect(url_for("gen_bp.home"))

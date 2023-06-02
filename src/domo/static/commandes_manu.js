@@ -27,6 +27,25 @@ function action_ventilo_auto(e) {
     );
 }
 
+function aff_mode(e) {
+    let b_manu =  document.querySelector("#manu")
+    let b_auto =  document.querySelector("#auto")
+    let choix = document.querySelector('input[name="choix"]:checked')
+    if (choix == null){
+        b_auto.style.display = "none";
+        b_manu.style.display = "none";
+    }
+    else if  (choix.value == "manu"){
+        b_auto.style.display = "none";
+        b_manu.style.display = "block";
+    } 
+    else if (choix.value == "auto") {
+        b_auto.style.display = "block";
+        b_manu.style.display = "none" ;
+        
+    }
+}
+
 function lumieres(e) {
     // envoie une requête POST à la route /lumieres, le json {"value ..."} sera dans le corps de la requête POST
     axios.post('/lumieres', {"value": e.target.value}).then(
@@ -50,7 +69,6 @@ radios.forEach(element => {
     element.addEventListener('change', action_ventilo_manu, false);    
 });
 
-
 let button = document.querySelectorAll('input[name="temp"]');
 button.forEach(element => {
     element.addEventListener('change', action_ventilo_auto, false);    
@@ -64,3 +82,10 @@ couleurs.forEach(element => {
 
 let temp = document.querySelector('#settemp');
 temp.addEventListener("click", action_ventilo_auto, false);
+
+let mode = document.querySelectorAll('.mode');
+mode.forEach(element => {
+    element.addEventListener('change', aff_mode, false)
+})
+
+aff_mode(null)

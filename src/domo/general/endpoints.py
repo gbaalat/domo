@@ -43,7 +43,8 @@ def acceuil():
 @gen_bp.app_errorhandler(404)
 def page_non_trouve(error):
     return render_template("404.html"), 404
-        
+
+
 @gen_bp.route("/activventilateur/manu", methods=['POST'])
 def manu_ventilo():
     if "mail" in session:
@@ -54,7 +55,7 @@ def manu_ventilo():
 
 @gen_bp.route("/activventilateur/auto", methods=['POST'])
 def auto_ventilo():
-    if"mail" in session: 
+    if "mail" in session: 
         temp = int(request.json["temp"])
         activer_ventilateur_manu(temp)
         return jsonify({"ven": temp})
