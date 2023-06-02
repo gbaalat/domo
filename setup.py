@@ -20,7 +20,8 @@ INSTALL_REQUIRES = [
     "requests",
     "urllib3",
     "werkzeug",
-    "GitPython"
+    "GitPython",
+    "paho_mqtt"
 ]
 EXTRAS_REQUIRE = {
     "dev": [

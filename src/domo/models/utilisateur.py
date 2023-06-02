@@ -27,7 +27,7 @@ class Utilisateur(db.Model):
 
     def __repr__(self):
         me = f"<User id={self.id} email={self.email},"
-        me += f" public_id={self.public_id}, admin={self.admin}>"
+        me += f" admin={self.admin}>"
         return me
 
     # exemples de méthodes de recherche d'un utilisateur
