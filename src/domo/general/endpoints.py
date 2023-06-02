@@ -67,6 +67,6 @@ def lumieres():
     if 'mail' in session:
         lum = request.json["value"]  # axios envoie les données en json -> request.json au lieu de request.form
         gerer_lumieres(lum)
-        return jsonify({"lum": True}) # renvoie un "accusé réception" au format json
+        return jsonify({"lum": lum}) # renvoie un "accusé réception" au format json
     return jsonify({"lum": False})    # ici, pas connecté !
 

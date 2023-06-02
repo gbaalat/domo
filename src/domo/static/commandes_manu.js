@@ -75,10 +75,9 @@ button.forEach(element => {
 });
 
 
-let couleurs = document.querySelectorAll('input[name="Couleurs"]');
-couleurs.forEach(element => {
-    element.addEventListener('change', lumieres, false);    
-});
+let couleurs = document.querySelector('#Couleurs');
+couleurs.addEventListener('change', lumieres, false);    
+
 
 let temp = document.querySelector('#settemp');
 temp.addEventListener("click", action_ventilo_auto, false);
