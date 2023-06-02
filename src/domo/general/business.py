@@ -1,5 +1,6 @@
 from domo.models.donnees_actuelles import Donnees_actuelles 
 from domo.models.historique import Historique 
+from domo.mqtt.publication import publish
 
 
 def recuperer_donnees_actuelles():
@@ -23,13 +24,15 @@ def activer_ventilateur_manu(on_off) -> None:
     """Publie la modification via MQTT : 
         -> mode 0 (manuel) et ctrl en fonction de la variable on_off   
        la modif sera ensuite enregistrée en base de données"""
-    pass
+    publish("Maison/Ventilateur/Mode/", "0")
+    publish("Maison/Ventilateur/Ctrl/", str(on_off))
 
 def mode_auto_ventilateur(set_temp_seuil) -> None:
     """Publie la modification via MQTT : 
         -> mode 1 (auto) et set_temp_seuil avec la température en paramètre
        la modif sera ensuite enregistrée en base de données"""
-    pass
+    publish("Maison/Ventilateur/Mode/", "1")
+    publish("Maison/Ventilateur/Set_temp_seuil/", str(set_temp_seuil))
 
 dicorgb = {"rouge" : [255, 0, 0], "vert" : [0, 255, 0], "bleu" : [0, 0, 255]}
 def couleurstoRGB(couleurs):
