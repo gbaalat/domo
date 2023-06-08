@@ -186,9 +186,22 @@ body {
 	padding-top: 156px;
 }
 
+.set{
+	width: 320px;
+	padding: 30px;
+	margin-top: -50px;
+}
+
 .login__field {
 	padding: 20px 0px;	
 	position: relative;	
+}
+
+.set__field {
+	padding: 20px 0px;	
+	position: relative;
+	display: flex;
+	align-items: center;	
 }
 
 .login__icon {
@@ -208,9 +221,27 @@ body {
 	transition: .2s;
 }
 
+.set__input{
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 30%;
+	transition: .2s;
+}
+
 .login__input:active,
 .login__input:focus,
 .login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.set__input:active,
+.set__input:focus,
+.set__input:hover {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
@@ -234,6 +265,7 @@ body {
 }
 
 select{
+	text-align: center;
 	background: #fff;
 	border-radius: 26px;
 	border: 1px solid #D4D3E8;
@@ -243,6 +275,7 @@ select{
 	box-shadow: 0px 2px 2px #5C5696;
 	cursor: pointer;
 	transition: .2s;
+	width: 100px;
 }
 
 option{
@@ -297,4 +330,25 @@ h5{
 	background-clip: border-box;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+h6{
+	font-size: 30px;
+	margin-top: -170px;
+	text-align: center;
+}
+
+.set__temp {
+	background: #fff;
+	font-size: 14px;
+	padding: 6px 15px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	align-items: center;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
 }
