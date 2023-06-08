@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
-from domo.auth.business import test_utilisateur, valider_connexion
+from domo.auth.business import test_utilisateur, valider_connexion, enregistre_utilisateur
 
 auth_bp = Blueprint(
     "auth_bp",
@@ -18,11 +18,13 @@ def inscription():
         return redirect(url_for("gen_bp.home")),flash("Log out to register")
     if request.method == "POST":
         email=str(request.form["mail"]) #recup du champ mail du formulaire HTML
-        if test_utilisateur(email): #fonction dans business.py
+        if test_utilisateur(email): #test si le emai existe deja
             session['mail'] = email #identificateur de connexion
+            mdp=str(request.form["mdp"]) #recup du champ mdp du formulaire HTML
+            enregistre_utilisateur(email,mdp)
             flash(f"valid email") #message à destination de l'utilisateur
         else:
-            flash("Invalid email")
+            flash("email already exists")
     return render_template("auth_inscription.html")
 
 
