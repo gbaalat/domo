@@ -1,7 +1,7 @@
 from domo.models.donnees_actuelles import Donnees_actuelles 
 from domo.models.historique import Historique 
 from domo.mqtt.publication import publish
-
+from domo.util.decorators import admin
 
 def recuperer_donnees_actuelles():
     """revoie un dictionnaire avec les données actuelles 
@@ -20,6 +20,7 @@ def recuperer_donnees_actuelles():
     dico["humidité"] = -1 if hum is None else hum.humidite
     return dico
 
+@admin
 def activer_ventilateur_manu(on_off) -> None:
     """Publie la modification via MQTT : 
         -> mode 0 (manuel) et ctrl en fonction de la variable on_off   
@@ -27,6 +28,7 @@ def activer_ventilateur_manu(on_off) -> None:
     publish("Maison/Ventilateur/Mode/", "0")
     publish("Maison/Ventilateur/Ctrl/", str(on_off))
 
+@admin
 def mode_auto_ventilateur(set_temp_seuil) -> None:
     """Publie la modification via MQTT : 
         -> mode 1 (auto) et set_temp_seuil avec la température en paramètre
@@ -41,7 +43,7 @@ def couleurstoRGB(couleurs):
         if key == couleurs:
             return dicorgb[key]
 
-
+@admin
 def gerer_lumieres(couleurs) -> None:
     """Publie la modification via MQTT : 
         -> les 3 composantes sont envoyées sur les 3 topics définis sur le drive (12 mai)

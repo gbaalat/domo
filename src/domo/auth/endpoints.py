@@ -38,7 +38,6 @@ def connexion():
         entreemdp = entree['mdp']
         if valider_connexion(entreemail, entreemdp):
             session["mail"] = entreemail
-            session["co"] = "Oui"
             return redirect(url_for("gen_bp.acceuil"))
         flash("Invalid email or password")
     return render_template("auth_connexion.html", session=session)
