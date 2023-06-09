@@ -23,5 +23,5 @@ def on_log(client: mqtt.Client, userdata, level, buffer):
 client: mqtt.Client = mqtt.Client(client_id=ID)
 
 client.username_pw_set(username=USERNAME, password=PASSWORD)
-#client.connect(host=MQTT_BROKER, port=MQTT_PORT, keepalive=KEEP_ALIVE)
+client.connect(host=MQTT_BROKER, port=MQTT_PORT, keepalive=KEEP_ALIVE)
 client.on_log = on_log
